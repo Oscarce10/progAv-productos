@@ -30,7 +30,7 @@ public class ProductoDAO {
     private static final String SQL_UPDATE = "UPDATE tb_producto SET nombre_producto = ?, "
             + "descripcion_producto = ?, unidades = ?, valor = ? WHERE id_producto = ?;";
     
-    private static final String SQL_DELETE = "DELETE FROM btb_producto WHERE id_producto = ?;";
+    private static final String SQL_DELETE = "DELETE FROM tb_producto WHERE id_producto = ?;";
     
     public static final ConexionMysql con = ConexionMysql.getInstance();
     
@@ -110,6 +110,19 @@ public class ProductoDAO {
             con.cerrarConexion();
         }
         return false;
+    }
+    
+    public void delete(int id){
+        PreparedStatement ps;
+        try {
+            ps = con.getCon().prepareStatement(SQL_DELETE);
+            ps.setInt(1, id);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            con.cerrarConexion();
+        }
     }
     
 }

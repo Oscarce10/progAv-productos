@@ -40,4 +40,9 @@ public class Facade {
         ProductoDAO dao = new ProductoDAO();
         return dao.update(prod);
     }    
+    
+    public void delete(int id){
+        ProductoDAO dao = new ProductoDAO();
+        dao.delete(id);
+    }
 }

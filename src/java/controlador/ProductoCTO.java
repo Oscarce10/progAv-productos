@@ -78,7 +78,12 @@ public class ProductoCTO extends HttpServlet {
                     prod = new ProductoDTO(id, nombre, des, und, valor);
                     System.out.println(ob.update(prod));
                     request.getRequestDispatcher("ProductoCTO?menu=Producto&accion=Listar").forward(request, response);
+                    break;
                     
+                case "del":                    
+                    ob.delete(Integer.parseInt(request.getParameter("id")));
+                    request.getRequestDispatcher("ProductoCTO?menu=Producto&accion=Listar").forward(request, response);
+                    break;
             }
             request.getRequestDispatcher("productovta.jsp").forward(request, response);
         }
