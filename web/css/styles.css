@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Lexend Deca', sans-serif;
+}
+
+
+
+html,
+body {
+    height: 100%;
+    background: linear-gradient(to right, #10d7fa, #012f3a);
+    
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#form, #table{
+    margin-top: 50px;
+    border: solid black 2px;
+}
