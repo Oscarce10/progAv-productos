@@ -22,6 +22,9 @@
             <li class="nav-item">
                 <a class="nav-link active" href="#">Cuenta</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="ClienteCTO?menu=Producto&accion=Listar">Clientes</a>
+            </li>
             <li class="nav-item"><a class="nav-link" href="index.php">Salida</a>
             </li>
 

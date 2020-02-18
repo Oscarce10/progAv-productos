@@ -5,8 +5,11 @@ package controlador;
 
 import java.util.ArrayList;
 import java.util.List;
+import modelo.dao.ClientaDAO;
 import modelo.dao.ProductoDAO;
+import modelo.dto.ClienteDTO;
 import modelo.dto.ProductoDTO;
+
 
 /**
  *
@@ -43,6 +46,41 @@ public class Facade {
     
     public void delete(int id){
         ProductoDAO dao = new ProductoDAO();
+        dao.delete(id);
+    }
+    
+    
+    
+    
+    public boolean crearCliente(ClienteDTO ob){
+        boolean rta = false;
+        if(ob != null){
+            ClientaDAO dao = new ClientaDAO();
+            rta = dao.create(ob);
+        }
+        return rta;
+    }
+    
+    public List<ClienteDTO> listarclientes(){
+        List<ProductoDTO> list = null;
+        ProductoDAO dao = new ProductoDAO();
+        list = dao.readAll();
+        return list;
+    }
+    
+    public ClienteDTO read(int id){
+        ClientaDAO dao = new ClientaDAO();
+        ClientaDAO clie = dao.read(id);
+        return clie;
+    }
+    
+    public boolean update(ClienteDTO clie){
+        ClienteDAO dao = new ClienteDAO();
+        return dao.update(clie);
+    }    
+    
+    public void delete(int id){
+        ClienteDAO dao = new ClienteDAO();
         dao.delete(id);
     }
 }
