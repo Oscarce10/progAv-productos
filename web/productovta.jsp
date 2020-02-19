@@ -24,13 +24,13 @@
         <link href="https://fonts.googleapis.com/css?family=Lexend+Deca|Lexend+Giga&display=swap" rel="stylesheet">
     </head>
     <body>
-        <%@include file="index.jsp" %>
+        <%@include file="nav.html" %>
         <br>
 
         <div class="container">
             <div class="row">
                 <div class="col-4" id="form">
-                    <form action="ProductoCTO?menu=Producto" method="POST">
+                    <form action="producto?menu=Producto" method="POST">
                         <input type="hidden" class="form-control" id="exampleFormControlInput1" name="id" value="${prod.getId()}">
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Nombre</label>

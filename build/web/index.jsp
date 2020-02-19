@@ -1,35 +1,19 @@
-<%-- 
-    Document   : index
-    Created on : 13/02/2020, 08:21:06 AM
-    Author     : USER
---%>
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">  
+    <title>algo</title>
+</head>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
-    <a class="navbar-brand" href="#"><i
-            class="fas fa-home"></i></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">	
-            <li class="nav-item">
-                <a class="nav-link active" href="ProductoCTO?menu=Producto&accion=Listar">Producto</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="#">Cuenta</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="ClienteCTO?menu=Producto&accion=Listar">Clientes</a>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="index.php">Salida</a>
-            </li>
+<body>
+    <% String p = request.getParameter("pid");%>
 
-        </ul>
-        <span class="navbar-text">
-        </span>
-    </div>
-</nav>
+    <jsp:include page="<%= p %>" ></jsp:include>
+
+    <script type="text/javascript" src="js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>

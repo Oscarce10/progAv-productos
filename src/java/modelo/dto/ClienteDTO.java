@@ -44,6 +44,11 @@ public class ClienteDTO {
         this.tipo_persona = tipo_persona;
     }
 
+    public ClienteDTO() {
+    }
+    
+    
+
     public int getId() {
         return id;
     }

@@ -4,18 +4,39 @@
         <servlet-name>ProductoCTO</servlet-name>
         <servlet-class>controlador.ProductoCTO</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>ClienteCTO</servlet-name>
-        <servlet-class>controlador.ClienteCTO</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>ProductoCTO</servlet-name>
         <url-pattern>/ProductoCTO</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>cliente</servlet-name>
+        <servlet-class>controlador.ClienteCTO</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>algo</servlet-name>
+        <servlet-class>controlador.algo</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>indexServlet</servlet-name>
+        <servlet-class>controlador.indexServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
-        <servlet-name>ClienteCTO</servlet-name>
+        <servlet-name>cliente</servlet-name>
         <url-pattern>/ClienteCTO</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>algo</servlet-name>
+        <url-pattern>/algo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>indexServlet</servlet-name>
+        <url-pattern>/indexServlet</url-pattern>
+    </servlet-mapping>
+    
+    <welcome-file-list>
+        <welcome-file>indexServlet</welcome-file>
+    </welcome-file-list>
+    
     <session-config>
         <session-timeout>
             30
