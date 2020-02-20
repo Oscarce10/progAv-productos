@@ -4,8 +4,6 @@
     Author     : USER
 --%>
 
-<%@page import="java.time.LocalDateTime"%>
-<%@page import="java.time.format.DateTimeFormatter"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -26,11 +24,9 @@
         <link href="https://fonts.googleapis.com/css?family=Lexend+Deca|Lexend+Giga&display=swap" rel="stylesheet">
     </head>
     <body>
-        <h1>Welcome, today is <%= DateTimeFormatter.ofPattern("dd/M/yyyy").format(LocalDateTime.now())%></h1>
-        
+        <%@include file="index.jsp" %>
         <br>
-        
-        
+
         <div class="container">
             <div class="row">
                 <div class="col-4" id="form">
