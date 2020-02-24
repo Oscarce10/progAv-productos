@@ -5,6 +5,7 @@
  */
 package controlador;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -33,30 +34,27 @@ public class indexServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            System.out.println("SERVLEEETTTTT");      
-            System.out.println(request.getParameter("pid"));
+
             if (request.getParameter("pid") != null) {
-                System.out.println("pid: " + request.getParameter("pid"));
+
+                boolean existe = false;
                 // Decodificar base64
                 byte[] byteArray = Base64.decodeBase64(request.getParameter("pid").getBytes());
                 String pid = new String(byteArray);
-
+                
                 if (request.getParameter("nos") != null || request.getParameter("nos") == null
                         && request.getSession().getAttribute("id") != null) {
-                    System.out.println("Se va a: index.jsp?pid="+pid);
-                    response.sendRedirect("index.jsp?pid="+pid);
+                    response.sendRedirect("index.jsp?pid=" + pid);
                 } else {
-                    response.sendRedirect("Location: index.jsp");
+                    response.sendRedirect("/");
+                    return;
                 }
             } else {
-                System.out.println("ACAAA");
-                request.getSession().setAttribute("id", "lol");
                 System.out.println(request.getSession().getAttribute("id"));
                 response.sendRedirect("index.jsp?pid=test.jsp");
-                
 
             }
-           
+
         }
     }
 
