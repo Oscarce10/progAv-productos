@@ -2,16 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/D:/Users/USER/Documents/NetBeansProjects/progAv-productos/src/java/controlador/ClienteCTO.java</file>
-            <file>file:/D:/Users/USER/Documents/NetBeansProjects/progAv-productos/src/java/controlador/ProductoCTO.java</file>
-            <file>file:/D:/Users/USER/Documents/NetBeansProjects/progAv-productos/web/productovta.jsp</file>
-            <file>file:/D:/Users/USER/Documents/NetBeansProjects/progAv-productos/web/WEB-INF/web.xml</file>
-            <file>file:/D:/Users/USER/Documents/NetBeansProjects/progAv-productos/src/java/controlador/Facade.java</file>
-            <file>file:/D:/Users/USER/Documents/NetBeansProjects/progAv-productos/web/css/styles.css</file>
-            <file>file:/D:/Users/USER/Documents/NetBeansProjects/progAv-productos/src/java/modelo/dto/ClienteDTO.java</file>
-            <file>file:/D:/Users/USER/Documents/NetBeansProjects/progAv-productos/src/java/controlador/Pruebas.java</file>
-            <file>file:/D:/Users/USER/Documents/NetBeansProjects/progAv-productos/web/index.jsp</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

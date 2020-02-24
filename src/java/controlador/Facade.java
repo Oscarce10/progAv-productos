@@ -62,7 +62,7 @@ public class Facade {
         return rta;
     }
     
-    public List<ClienteDTO> listarclientes(){
+    public List<ClienteDTO> listarClientes(){
         List<ClienteDTO> list = null;
         ClienteDAO dao = new ClienteDAO();
         list = dao.readAll();
