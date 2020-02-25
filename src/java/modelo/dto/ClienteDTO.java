@@ -10,18 +10,19 @@ package modelo.dto;
  * @author Estudiante
  */
 public class ClienteDTO {
-    
+
     private int id;
-    private String nit, razon_social, nombre_rl, apellido_rl, num_doc_rl, telefono, celular, correo, direccion, descripcion;
+    private String nit, razon_social, nombre_rl, apellido_rl, doc_rl, telefono, celular, correo, direccion, descripcion;
     private char tipo_persona;
 
-    public ClienteDTO(int id, String nit, String razon_social, String nombre_rl, String apellido_rl, String num_doc_rl, String telefono, String celular, String correo, String direccion, String descripcion, char tipo_persona) {
+    public ClienteDTO(int id, String nit, String razon_social, String nombre_rl, String apellido_rl, String doc_rl,
+            String telefono, String celular, String correo, String direccion, String descripcion, char tipo_persona) {
         this.id = id;
         this.nit = nit;
         this.razon_social = razon_social;
         this.nombre_rl = nombre_rl;
         this.apellido_rl = apellido_rl;
-        this.num_doc_rl = num_doc_rl;
+        this.doc_rl = doc_rl;
         this.telefono = telefono;
         this.celular = celular;
         this.correo = correo;
@@ -30,12 +31,13 @@ public class ClienteDTO {
         this.tipo_persona = tipo_persona;
     }
 
-    public ClienteDTO(String nit, String razon_social, String nombre_rl, String apellido_rl, String num_doc_rl, String telefono, String celular, String correo, String direccion, String descripcion, char tipo_persona) {
+    public ClienteDTO(String nit, String razon_social, String nombre_rl, String apellido_rl, String doc_rl,
+            String telefono, String celular, String correo, String direccion, String descripcion, char tipo_persona) {
         this.nit = nit;
         this.razon_social = razon_social;
         this.nombre_rl = nombre_rl;
         this.apellido_rl = apellido_rl;
-        this.num_doc_rl = num_doc_rl;
+        this.doc_rl = doc_rl;
         this.telefono = telefono;
         this.celular = celular;
         this.correo = correo;
@@ -84,12 +86,12 @@ public class ClienteDTO {
         this.apellido_rl = apellido_rl;
     }
 
-    public String getNum_doc_rl() {
-        return num_doc_rl;
+    public String getDoc_rl() {
+        return doc_rl;
     }
 
-    public void setNum_doc_rl(String num_doc_rl) {
-        this.num_doc_rl = num_doc_rl;
+    public void setDoc_rl(String num_doc_rl) {
+        this.doc_rl = num_doc_rl;
     }
 
     public String getTelefono() {
@@ -142,9 +144,10 @@ public class ClienteDTO {
 
     @Override
     public String toString() {
-        return "PersonaDTO{" + "id=" + id + ", nit=" + nit + ", razon_social=" + razon_social + ", nombre_rl=" + nombre_rl + ", apellido_rl=" + apellido_rl + ", num_doc_rl=" + num_doc_rl + ", telefono=" + telefono + ", celular=" + celular + ", correo=" + correo + ", direccion=" + direccion + ", descripcion=" + descripcion + ", tipo_persona=" + tipo_persona + '}';
+        return "PersonaDTO{" + "id=" + id + ", nit=" + nit + ", razon_social=" + razon_social + ", nombre_rl="
+                + nombre_rl + ", apellido_rl=" + apellido_rl + ", num_doc_rl=" + doc_rl + ", telefono=" + telefono
+                + ", celular=" + celular + ", correo=" + correo + ", direccion=" + direccion + ", descripcion="
+                + descripcion + ", tipo_persona=" + tipo_persona + '}';
     }
 
-    
-    
 }
