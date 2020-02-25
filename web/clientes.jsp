@@ -18,8 +18,10 @@
     </head>
 
     <body>
+        
+        <%@include file="index.jsp" %>
 
-        <div class="container">
+        <div class="container" style="margin-top: 80px;">
             <div class="row">
                 <div class="col-2"></div>
                 <div class="card bg-dark text-white col-9">
