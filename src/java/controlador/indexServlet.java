@@ -33,7 +33,7 @@ public class indexServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
+            System.out.println("pid 1 " + request.getParameter("pid"));
 
             if (request.getParameter("pid") != null) {
 
@@ -42,16 +42,23 @@ public class indexServlet extends HttpServlet {
                 byte[] byteArray = Base64.decodeBase64(request.getParameter("pid").getBytes());
                 String pid = new String(byteArray);
                 
+                File filePid = new File(pid);
+
                 if (request.getParameter("nos") != null || request.getParameter("nos") == null
                         && request.getSession().getAttribute("id") != null) {
-                    response.sendRedirect("index.jsp?pid=" + pid);
+                    
+                    if(filePid.isFile()) {
+                        System.out.println("Is file");
+                        response.sendRedirect("index.jsp?pid=" + pid);
+                    } else {
+                    }
                 } else {
+                    System.out.println("Is file2");
                     response.sendRedirect("/");
-                    return;
                 }
             } else {
-                System.out.println(request.getSession().getAttribute("id"));
-                response.sendRedirect("index.jsp?pid=test.jsp");
+                System.out.println("id: " + request.getSession().getAttribute("id"));
+                request.getRequestDispatcher("index.jsp?pid=inicio.jsp").forward(request, response);
 
             }
 

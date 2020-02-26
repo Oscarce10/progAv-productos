@@ -29,6 +29,10 @@ public class ProductoDTO implements Serializable{
         this.unidades = unidades;
         this.valor = valor;
     }
+    
+    public ProductoDTO(int id) {
+        this.id = id;
+    }
 
     public ProductoDTO() {
     }

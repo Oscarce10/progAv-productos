@@ -55,7 +55,7 @@ public class ClienteDAO {
             ps.setString(7, c.getCelular());
             ps.setString(8, c.getCorreo());
             ps.setString(9, c.getDireccion());
-            ps.setString(10, String.valueOf(c.getTipo_persona()));
+            ps.setString(10,String.valueOf(c.getTipo_persona()));
             ps.setString(11, c.getDescripcion());
             
             if(ps.executeUpdate()>0)
@@ -99,9 +99,9 @@ public class ClienteDAO {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                clie = new ClienteDTO(rs.getInt(1), rs.getString(2), rs.getString(3), 
-                        rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), 
-                        rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12).charAt(0));
+                clie = new ClienteDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4)
+                        , rs.getString(5),rs.getString(6),rs.getString(7)
+                        ,rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11),rs.getString(12).charAt(0));
                 System.out.println(clie);
             }
         } catch (SQLException ex) {
@@ -112,15 +112,21 @@ public class ClienteDAO {
         return clie;
     }
     
-    public boolean update(ClienteDTO clie){
+    public boolean update(ClienteDTO c){
         PreparedStatement ps;
         try {
             ps = con.getCon().prepareStatement(SQL_UPDATE);
-            ps.setInt(5, prod.getId());
-            ps.setString(1, prod.getNombre());
-            ps.setString(2, prod.getDescripcion());
-            ps.setInt(3, prod.getUnidades());
-            ps.setInt(4, prod.getValor());
+            ps.setString(1, c.getNit());
+            ps.setString(2, c.getRazon_social());
+            ps.setString(3, c.getNombre_rl());
+            ps.setString(4, c.getApellido_rl());
+            ps.setString(5, c.getNum_doc_rl());
+            ps.setString(6, c.getTelefono());
+            ps.setString(7, c.getCelular());
+            ps.setString(8, c.getCorreo());
+            ps.setString(9, c.getDireccion());
+            ps.setString(10,String.valueOf(c.getTipo_persona()));
+            ps.setString(11, c.getDescripcion());
             if(ps.executeUpdate()>0)
                 return true;
         } catch (SQLException ex) {

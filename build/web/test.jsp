@@ -1,5 +1,5 @@
 <%@page import="org.apache.tomcat.util.codec.binary.Base64"%>
-<form action="?pid= <% // Encode data on your side using BASE64
+<form action="indexServlet?pid= <% // Encode data on your side using BASE64
     out.print(new String(Base64.encodeBase64("algo&menu=12".getBytes())));%> " method="post">
     <div class="form-group">
         <label for="exampleInputEmail1">Email addresssssss</label>

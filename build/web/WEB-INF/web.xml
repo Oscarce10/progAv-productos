@@ -41,7 +41,7 @@
     
     <servlet-mapping>
         <servlet-name>indexServlet</servlet-name>
-        <url-pattern></url-pattern>
+        <url-pattern>/indexServlet</url-pattern>
     </servlet-mapping>
    
     

@@ -1,5 +1,9 @@
 $(function(){
-	console.log("Ghesd")
+  $("#registro-producto").load("producto/form_producto.jsp");
+});
+
+$("agregar").click(function (){
+    
 });
 
 

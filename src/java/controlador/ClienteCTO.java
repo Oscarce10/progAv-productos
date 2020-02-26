@@ -48,19 +48,22 @@ public class ClienteCTO extends HttpServlet {
                     break;
                     
                 case "agregar":
-                    String nombre = request.getParameter("nombre");
-                    String des = request.getParameter("descripcion");
-                    int und = Integer.parseInt(request.getParameter("unidades"));
-                    int valor = Integer.parseInt(request.getParameter("valor"));
-                    ClienteDTO cl = new ClienteDTO(nombre, des, und, valor);//llenar con los datos de cliente en DTO
-                    if(ob.equals(cl)){
-                        System.out.println("Igual");
-                        request.getRequestDispatcher("ProductoCTO?menu=Producto&accion=Listar&error=1").forward(request, response);
-                        break;
-                    }
+                    String razon_social = request.getParameter("nombre") + request.getParameter("apellido");
+                    ClienteDTO cl = new ClienteDTO(
+                            request.getParameter("nit"), 
+                            razon_social,
+                            request.getParameter("nombre_rl"), 
+                            request.getParameter("apellido_rl"),
+                            request.getParameter("doc_rl"),
+                            request.getParameter("telefono"), 
+                            request.getParameter("celular"),
+                            request.getParameter("correo"),
+                            request.getParameter("direccion"), 
+                            request.getParameter("descripcion"),
+                            request.getParameter("persona").charAt(0));//llenar con los datos de cliente en DTO                 
                         
-                    ob.crearProducto(pr);
-                    request.getRequestDispatcher("ProductoCTO?menu=Producto&accion=Listar").forward(request, response);
+                    ob.crearCliente(cl);
+                    request.getRequestDispatcher("ClienteCTO?menu=Producto&accion=Listar").forward(request, response);
                     break;
                     
                 case "edit":
@@ -72,22 +75,29 @@ public class ClienteCTO extends HttpServlet {
                     
                     
                 case "update":
-                    id = Integer.parseInt(request.getParameter("id"));
-                    nombre = request.getParameter("nombre");
-                    des = request.getParameter("descripcion");
-                    und = Integer.parseInt(request.getParameter("unidades"));
-                    valor = Integer.parseInt(request.getParameter("valor"));
-                    prod = new ProductoDTO(id, nombre, des, und, valor);
-                    System.out.println(ob.update(prod));
-                    request.getRequestDispatcher("ProductoCTO?menu=Producto&accion=Listar").forward(request, response);
+                    razon_social = request.getParameter("nombre") + request.getParameter("apellido");
+                    cl = new ClienteDTO(
+                            request.getParameter("nit"), 
+                            razon_social,
+                            request.getParameter("nombre_rl"), 
+                            request.getParameter("apellido_rl"),
+                            request.getParameter("doc_rl"),
+                            request.getParameter("telefono"), 
+                            request.getParameter("celular"),
+                            request.getParameter("correo"),
+                            request.getParameter("direccion"), 
+                            request.getParameter("descripcion"),
+                            request.getParameter("persona").charAt(0));
+                    System.out.println(ob.update(cl));
+                    request.getRequestDispatcher("ClienteCTO?menu=Cliente&accion=Listar").forward(request, response);
                     break;
                     
                 case "del":                    
-                    ob.delete(Integer.parseInt(request.getParameter("id")));
+                    ob.deleteCliente(Integer.parseInt(request.getParameter("id")));
                     request.getRequestDispatcher("ProductoCTO?menu=Producto&accion=Listar").forward(request, response);
                     break;
             }
-            request.getRequestDispatcher("productovta.jsp").forward(request, response);
+            request.getRequestDispatcher("clientevta.jsp").forward(request, response);
         }
     }
 
