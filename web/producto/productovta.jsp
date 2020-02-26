@@ -61,6 +61,7 @@
     $("#edit${ob.getId()}").click(function () {
         $("#registro-producto").load("indexAjax.jsp?pid=producto/form_producto.jsp&edit=true&id=${ob.getId()}");
         $("#opc_editar${ob.getId()}").tooltip('hide');
+
     });
     </c:forEach>
     

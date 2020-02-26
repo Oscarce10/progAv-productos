@@ -41,6 +41,7 @@ public class ProductoCTO extends HttpServlet {
             Facade ob = new Facade();
             List<ProductoDTO> list = ob.listarProductos();
             request.setAttribute("lista_productos", list);
+            request.getRequestDispatcher("index.jsp?pid=producto/productovta.jsp").forward(request, response);
         } else if (menu.equalsIgnoreCase("Producto")) {
             Facade ob = new Facade();
             switch (accion) {
@@ -70,8 +71,7 @@ public class ProductoCTO extends HttpServlet {
                     valor = Integer.parseInt(request.getParameter("valor"));
                     prod = new ProductoDTO(id, nombre, des, und, valor);
                     System.out.println(ob.update(prod));
-                    request.getRequestDispatcher("ProductoCTO?accion=listar").forward(request, response);
-                    break;
+                    return;
 
                 case "del":
                     ob.delete(Integer.parseInt(request.getParameter("id")));
@@ -87,7 +87,7 @@ public class ProductoCTO extends HttpServlet {
             return;
         }
 
-        request.getRequestDispatcher("index.jsp?pid=producto/productovta.jsp").forward(request, response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

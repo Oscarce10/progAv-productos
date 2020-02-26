@@ -12,7 +12,7 @@
 %>
 
 <form action="ProductoCTO?menu=Producto&accion=update" method="POST">
-    <input type="hidden" class="form-control" id="exampleFormControlInput1" name="id" value="<%out.print((prod != null)?prod.getId():"");%>">
+    <input type="hidden" class="form-control" id="id" name="id" value="<%out.print((prod != null)?prod.getId():"");%>">
     <div class="form-group">
         <label for="exampleFormControlInput1">Nombre</label>
         <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Arroz" name="nombre" required
