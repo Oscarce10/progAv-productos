@@ -1,3 +1,4 @@
+<%@page import="org.apache.tomcat.util.codec.binary.Base64"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -6,7 +7,13 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <% String pid = request.getParameter("pid");%>
+        <% 
+            // Create a String.
+                String pid;
+                // Get the bytes from the String, using getBytes() API method of String.
+                byte[] byteArray = Base64.decodeBase64(request.getParameter("pid").getBytes());
+                pid = new String(byteArray);
+        %>
         <jsp:include page="<%= pid%>" ></jsp:include>
     </body>
 </html>

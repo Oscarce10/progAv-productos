@@ -25,6 +25,7 @@ h1 {
     max-width: 330px;
     padding: 15px;
     margin: auto;
+    margin-top: 70px;
 }
 
 .form-signin .checkbox {
@@ -165,4 +166,12 @@ input::-webkit-inner-spin-button {
 #registro-producto, #table{
     margin-top: 50px;
     border: solid black 2px;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.edit-icon{
+    margin-left: 10px;
 }

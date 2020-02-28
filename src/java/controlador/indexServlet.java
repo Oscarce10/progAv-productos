@@ -5,7 +5,6 @@
  */
 package controlador;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -35,30 +34,10 @@ public class indexServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             System.out.println("pid 1 " + request.getParameter("pid"));
 
-            if (request.getParameter("pid") != null) {
-
-                boolean existe = false;
-                // Decodificar base64
-                byte[] byteArray = Base64.decodeBase64(request.getParameter("pid").getBytes());
-                String pid = new String(byteArray);
+            if (request.getSession().getAttribute("id") != null) {
                 
-                File filePid = new File(pid);
-
-                if (request.getParameter("nos") != null || request.getParameter("nos") == null
-                        && request.getSession().getAttribute("id") != null) {
-                    
-                    if(filePid.isFile()) {
-                        System.out.println("Is file");
-                        response.sendRedirect("index.jsp?pid=" + pid);
-                    } else {
-                    }
-                } else {
-                    System.out.println("Is file2");
-                    response.sendRedirect("/");
-                }
             } else {
-                System.out.println("id: " + request.getSession().getAttribute("id"));
-                request.getRequestDispatcher("index.jsp?pid=inicio.jsp").forward(request, response);
+                request.getRequestDispatcher("index.jsp?pid=" + Base64.encodeBase64String("inicio.jsp".getBytes())).forward(request, response);
 
             }
 

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.dto.ProductoDTO;
+import org.apache.tomcat.util.codec.binary.Base64;
 
 /**
  *
@@ -41,7 +42,8 @@ public class ProductoCTO extends HttpServlet {
             Facade ob = new Facade();
             List<ProductoDTO> list = ob.listarProductos();
             request.setAttribute("lista_productos", list);
-            request.getRequestDispatcher("index.jsp?pid=producto/productovta.jsp").forward(request, response);
+
+            request.getRequestDispatcher("index.jsp?pid=" + Base64.encodeBase64String("producto/productovta.jsp".getBytes())).forward(request, response);
         } else if (menu.equalsIgnoreCase("Producto")) {
             Facade ob = new Facade();
             switch (accion) {
@@ -52,7 +54,7 @@ public class ProductoCTO extends HttpServlet {
                     int valor = Integer.parseInt(request.getParameter("valor"));
                     ProductoDTO pr = new ProductoDTO(nombre, des, und, valor);
                     ob.crearProducto(pr);
-                    request.getRequestDispatcher("ProductoCTO").forward(request, response);
+                    response.sendRedirect("ProductoCTO");
                     break;
 
                 case "edit":
@@ -71,11 +73,12 @@ public class ProductoCTO extends HttpServlet {
                     valor = Integer.parseInt(request.getParameter("valor"));
                     prod = new ProductoDTO(id, nombre, des, und, valor);
                     System.out.println(ob.update(prod));
+                    response.sendRedirect("ProductoCTO");
                     return;
 
                 case "del":
                     ob.delete(Integer.parseInt(request.getParameter("id")));
-                    request.getRequestDispatcher("ProductoCTO").forward(request, response);
+                    response.sendRedirect("ProductoCTO");
                     break;
 
                 default:

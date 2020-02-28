@@ -1,6 +1,5 @@
 
-<body class="text-center">    
-    <%@include file="nav.html" %>
+<body class="text-center" id="login">
     <form class="form-signin" action="#" method="post">
         <div class="mb-4 logo">
             <a href="#" title="Login"><i class="fab fa-critical-role fa-7x"></i></a>
