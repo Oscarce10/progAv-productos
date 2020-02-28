@@ -21,8 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `bd_tallerjavaweb`
 --
-CREATE DATABASE IF NOT EXISTS `bd_tallerjavaweb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `bd_tallerjavaweb`;
+CREATE DATABASE IF NOT EXISTS `producto` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `producto`;
 
 -- --------------------------------------------------------
 
@@ -30,11 +30,11 @@ USE `bd_tallerjavaweb`;
 -- Estructura de tabla para la tabla `tb_producto`
 --
 
-CREATE TABLE `tb_producto` (
-  `id_producto` int(11) NOT NULL,
-  `nombre_producto` varchar(50) NOT NULL,
-  `descripcion_producto` varchar(150) NOT NULL,
-  `unidades` int(11) NOT NULL,
+CREATE TABLE `producto` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `descripcion` varchar(150) NOT NULL,
+  `cantidad` int(11) NOT NULL,
   `valor` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -42,7 +42,7 @@ CREATE TABLE `tb_producto` (
 -- Volcado de datos para la tabla `tb_producto`
 --
 
-INSERT INTO `tb_producto` (`id_producto`, `nombre_producto`, `descripcion_producto`, `unidades`, `valor`) VALUES
+INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `cantidad`, `valor`) VALUES
 (1, 'Cafe', 'Cafe suave, granulado en tarro', 10, 11000),
 (2, 'azucar', 'azucar refinada con vitamina d', 20, 1000),
 (3, 'pan integral', 'pan integral sin conservantes', 25, 500),
@@ -58,8 +58,8 @@ INSERT INTO `tb_producto` (`id_producto`, `nombre_producto`, `descripcion_produc
 --
 -- Indices de la tabla `tb_producto`
 --
-ALTER TABLE `tb_producto`
-  ADD PRIMARY KEY (`id_producto`);
+ALTER TABLE `producto`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -68,8 +68,8 @@ ALTER TABLE `tb_producto`
 --
 -- AUTO_INCREMENT de la tabla `tb_producto`
 --
-ALTER TABLE `tb_producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+ALTER TABLE `producto`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

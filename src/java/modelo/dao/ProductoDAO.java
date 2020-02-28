@@ -20,17 +20,17 @@ import modelo.dto.ProductoDTO;
  */
 public class ProductoDAO {
     
-    private static final String SQL_INSERT = "INSERT INTO tb_producto"
-            + "(nombre_producto, descripcion_producto, unidades, valor) VALUES(?, ?, ?, ?);";
+    private static final String SQL_INSERT = "INSERT INTO producto"
+            + "(nombre, descripcion, cantidad, valor) VALUES(?, ?, ?, ?);";
     
-    private static final String SQL_READ = "SELECT * FROM tb_producto WHERE id_producto = ?;";
+    private static final String SQL_READ = "SELECT * FROM producto WHERE id = ?;";
     
-    private static final String SQL_READALL = "SELECT * FROM tb_producto;";
+    private static final String SQL_READALL = "SELECT * FROM producto;";
     
-    private static final String SQL_UPDATE = "UPDATE tb_producto SET nombre_producto = ?, "
-            + "descripcion_producto = ?, unidades = ?, valor = ? WHERE id_producto = ?;";
+    private static final String SQL_UPDATE = "UPDATE producto SET nombre = ?, "
+            + "descripcion = ?, cantidad = ?, valor = ? WHERE id = ?;";
     
-    private static final String SQL_DELETE = "DELETE FROM tb_producto WHERE id_producto = ?;";
+    private static final String SQL_DELETE = "DELETE FROM producto WHERE id = ?;";
     
     public static final ConexionMysql con = ConexionMysql.getInstance();
     
