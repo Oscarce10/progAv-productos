@@ -25,6 +25,6 @@
 </div>
 <div class="modal-footer">
     
-    <a href="ProductoCTO?menu=Producto&accion=del&id=${ob.getId()}" class="btn btn-danger">Eliminar producto</a>
+    <a href="ProductoCTO?menu=Producto&accion=del&id=<%out.print(prod.getId());%>" class="btn btn-danger">Eliminar producto</a>
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Volver</button>
 </div>
