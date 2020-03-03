@@ -7,8 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import modelo.dao.ClienteDAO;
 import modelo.dao.ProductoDAO;
+import modelo.dao.UsuarioDAO;
 import modelo.dto.ClienteDTO;
 import modelo.dto.ProductoDTO;
+import modelo.dto.UsuarioDTO;
 
 
 /**
@@ -83,5 +85,13 @@ public class Facade {
     public void deleteCliente(int id){
         ClienteDAO dao = new ClienteDAO();
         dao.delete(id);
+    }
+    
+    
+    public UsuarioDTO validar(UsuarioDTO usuario){
+        UsuarioDTO ob;
+        UsuarioDAO dao = new UsuarioDAO();
+        ob = dao.read(usuario);
+        return ob;
     }
 }

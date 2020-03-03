@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary" id="nav">
     <a class="navbar-brand" href="#"><i
             class="fas fa-home"></i></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"

@@ -1,6 +1,6 @@
 
 <body class="text-center" id="login">
-    <form class="form-signin" action="#" method="post">
+    <form class="form-signin" action="ValidarCTO" method="post">
         <div class="mb-4 logo">
             <a href="#" title="Login"><i class="fab fa-critical-role fa-7x"></i></a>
         </div>

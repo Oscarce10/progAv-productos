@@ -25,7 +25,7 @@ public class ConexionMysql {
         try {
             Class.forName("com.mysql.jdbc.Driver"); // driver
             try{
-                con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/producto", "root", "");
+                con = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3307/producto", "root", "");
                 System.out.println("Conexion establecida con BD");
             } catch (SQLException ex) {
                 Logger.getLogger(ConexionMysql.class.getName()).log(Level.SEVERE, null, ex);

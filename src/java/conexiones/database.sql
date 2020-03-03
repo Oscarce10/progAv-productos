@@ -72,6 +72,32 @@ ALTER TABLE `producto`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
+    CREATE TABLE tipo_usuario(
+      id int auto_increment,
+      tipo_usuario varchar(20),
+      primary key (id)
+      );
+
+    INSERT INTO tipo_usuario (tipo_usuario) VALUES
+    ("Administrador"),
+    ("Cliente");
+
+create table usuario(
+  id int auto_increment,
+  tipo int,
+  nombre varchar(30),
+  apellido varchar(30),
+  correo varchar(50) not null,
+  clave varchar(150) not null,
+  primary key(id),
+  foreign key (tipo) references tipo_usuario (id)
+  );      
+
+
+INSERT INTO usuario (tipo, nombre, apellido, correo, clave) VALUES 
+(1, "Oscar", "Cely", "1@a.com", MD5("1")),
+(1, "Andres", "Melo", "2@a.com", MD5("2")),
+(1, "Diana", "Guerrero", "3@a.com", MD5("3"));
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
