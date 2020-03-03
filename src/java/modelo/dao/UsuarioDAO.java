@@ -47,14 +47,16 @@ public class UsuarioDAO implements Obligacion<UsuarioDTO>{
     }
 
 
+    @Override
     public UsuarioDTO read(UsuarioDTO val) {
         PreparedStatement ps;
         UsuarioDTO usuario = null;
         try {
             ps = con.getCon().prepareStatement(SQL_READ);
             ps.setString(1, val.getCorreo());
+            System.out.println("Query: " + ps.toString());
             ResultSet rs = ps.executeQuery();
-            usuario = new UsuarioDTO(rs.getInt(0), rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+            usuario = new UsuarioDTO(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
             
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
