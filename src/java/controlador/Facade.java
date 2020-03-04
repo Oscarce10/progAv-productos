@@ -5,9 +5,11 @@ package controlador;
 
 import java.util.ArrayList;
 import java.util.List;
+import modelo.dao.AdministradorDAO;
 import modelo.dao.ClienteDAO;
 import modelo.dao.ProductoDAO;
 import modelo.dao.UsuarioDAO;
+import modelo.dto.AdministradorDTO;
 import modelo.dto.ClienteDTO;
 import modelo.dto.ProductoDTO;
 import modelo.dto.UsuarioDTO;
@@ -93,5 +95,14 @@ public class Facade {
         UsuarioDAO dao = new UsuarioDAO();
         ob = dao.read(usuario);
         return ob;
+    }
+    
+    public boolean crearAdministrador(AdministradorDTO adm){
+        boolean rta = false;
+        AdministradorDAO dao = new AdministradorDAO();
+        if(dao.create(adm))
+            rta = true;
+        
+        return rta;
     }
 }

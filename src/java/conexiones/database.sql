@@ -22,7 +22,8 @@ SET time_zone = "+00:00";
 -- Base de datos: `bd_tallerjavaweb`
 --
 CREATE DATABASE IF NOT EXISTS `producto` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `producto`;
+
+USE producto;
 
 -- --------------------------------------------------------
 
@@ -72,32 +73,35 @@ ALTER TABLE `producto`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
-    CREATE TABLE tipo_usuario(
-      id int auto_increment,
-      tipo_usuario varchar(20),
-      primary key (id)
-      );
 
-    INSERT INTO tipo_usuario (tipo_usuario) VALUES
-    ("Administrador"),
-    ("Cliente");
-
-create table usuario(
+create table administrador(
   id int auto_increment,
-  tipo int,
   nombre varchar(30),
   apellido varchar(30),
   correo varchar(50) not null,
   clave varchar(150) not null,
-  primary key(id),
-  foreign key (tipo) references tipo_usuario (id)
-  );      
+  salt varchar(20),
+  primary key(id)
+  );
+
+CREATE TABLE cliente(
+  id int NOT null auto_increment,
+  nit varchar(30) not null,
+  razon_social varchar(70),
+  nombre_rl varchar(30),
+  apellido_rl varchar(30),
+  num_doc_rl varchar(30),
+  telefono varchar(8),
+  celular varchar(10),
+  correo varchar(30),
+  salt varchar(20),
+  direccion varchar(30),
+  descripcion varchar(30),
+  tipo_persona char(1),
+  primary key(id)
+);      
 
 
-INSERT INTO usuario (tipo, nombre, apellido, correo, clave) VALUES 
-(1, "Oscar", "Cely", "1@a.com", MD5("1")),
-(1, "Andres", "Melo", "2@a.com", MD5("2")),
-(1, "Diana", "Guerrero", "3@a.com", MD5("3"));
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
