@@ -5,6 +5,8 @@
  */
 package modelo.dao;
 
+import controlador.Hashing;
+import java.security.NoSuchAlgorithmException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -83,6 +85,32 @@ public class AdministradorDAO extends Obligacion<AdministradorDTO>{
     @Override
     public void delete(AdministradorDTO id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public AdministradorDTO checkAdm(AdministradorDTO adm){
+        AdministradorDTO res = null;
+        PreparedStatement ps;
+        try {
+            ps = con.getCon().prepareStatement("SELECT * FROM administrador WHERE correo LIKE ?");
+            ps.setString(1, adm.getCorreo());
+            ResultSet rs;
+            rs = ps.executeQuery();
+            if(rs.next()){
+                AdministradorDTO ad = new AdministradorDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
+                ps = con.getCon().prepareStatement("SELECT * FROM administrador WHERE correo LIKE ? AND clave LIKE ?");
+                ps.setString(1, adm.getCorreo());
+                ps.setString(2, Hashing.generarClave(ad.getSalt(), adm.getClave()));
+                rs = ps.executeQuery();
+                if(rs.next()){
+                    res = new AdministradorDTO(ad);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AdministradorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(AdministradorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return res;
     }
     
 }

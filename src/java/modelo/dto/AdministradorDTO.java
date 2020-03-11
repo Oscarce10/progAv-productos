@@ -48,6 +48,14 @@ public class AdministradorDTO {
         this.correo = correo;
         this.clave = clave;
     }
+    
+    public AdministradorDTO(AdministradorDTO adm){
+        this.id = adm.getId();
+        this.nombre = adm.getNombre();
+        this.apellido = adm.getApellido();
+        this.clave = adm.getClave();
+        this.salt =adm.getSalt();
+    }
 
     public int getId() {
         return id;
