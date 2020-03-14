@@ -5,7 +5,6 @@ métodos del modelo,
 package controlador;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -43,7 +42,7 @@ public class ProductoCTO extends HttpServlet {
             List<ProductoDTO> list = ob.listarProductos();
             request.setAttribute("lista_productos", list);
 
-            request.getRequestDispatcher("index.jsp?pid=" + Base64.encodeBase64String("producto/productovta.jsp".getBytes())).forward(request, response);
+            request.getRequestDispatcher("index.jsp?pid=" + Base64.encodeBase64String("administrador/productovta.jsp".getBytes())).forward(request, response);
         } else if (menu.equalsIgnoreCase("Producto")) {
             Facade ob = new Facade();
             switch (accion) {

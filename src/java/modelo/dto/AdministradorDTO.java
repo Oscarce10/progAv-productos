@@ -16,6 +16,11 @@ public class AdministradorDTO {
     public AdministradorDTO() {
     }
 
+    public AdministradorDTO(int id) {
+        this.id = id;
+    }
+    
+
     public AdministradorDTO(int id, String nombre, String apellido, String correo) {
         this.id = id;
         this.nombre = nombre;
@@ -48,14 +53,14 @@ public class AdministradorDTO {
         this.correo = correo;
         this.clave = clave;
     }
-    
-    public AdministradorDTO(AdministradorDTO adm){
-        this.id = adm.getId();
-        this.nombre = adm.getNombre();
-        this.apellido = adm.getApellido();
-        this.clave = adm.getClave();
-        this.salt =adm.getSalt();
+
+    public AdministradorDTO(String correo, String clave, String salt) {
+        this.correo = correo;
+        this.clave = clave;
+        this.salt = salt;
     }
+    
+    
 
     public int getId() {
         return id;

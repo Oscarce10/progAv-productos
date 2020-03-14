@@ -106,9 +106,15 @@ public class Facade {
         return rta;
     }
     
-    public AdministradorDTO checkAdmin(AdministradorDTO admTest){
+    public AdministradorDTO checkAdmin(AdministradorDTO administrador){
         AdministradorDAO dao = new AdministradorDAO();
-        AdministradorDTO res = dao.checkAdm(admTest);
-        return res;
+        administrador = dao.checkAdm(administrador);
+        return administrador;
+    }
+    
+    public AdministradorDTO readAdmin(AdministradorDTO administrador){
+        AdministradorDAO dao = new AdministradorDAO();
+        administrador = dao.read(administrador);
+        return administrador;
     }
 }

@@ -25,6 +25,7 @@ public class AdministradorDAO extends Obligacion<AdministradorDTO>{
     public AdministradorDAO() {
         super("administrador", "nombre, apellido, correo, clave, salt", "?, ?, ?, ?, ?", "", "");
     }
+    
 
     @Override
     public boolean create(AdministradorDTO ob) {
@@ -73,8 +74,21 @@ public class AdministradorDAO extends Obligacion<AdministradorDTO>{
     }
 
     @Override
-    public AdministradorDTO read(AdministradorDTO id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public AdministradorDTO read(AdministradorDTO administrador) {
+        try {
+            PreparedStatement ps;
+            ps = con.getCon().prepareStatement("SELECT * FROM administrador WHERE id = ?");
+            ps.setInt(1, administrador.getId());
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                administrador.setNombre(rs.getString("nombre"));
+                administrador.setApellido(rs.getString("apellido"));
+                administrador.setCorreo(rs.getString("correo"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AdministradorDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return administrador;
     }
 
     @Override
@@ -91,23 +105,21 @@ public class AdministradorDAO extends Obligacion<AdministradorDTO>{
         AdministradorDTO res = null;
         PreparedStatement ps;
         try {
-            ps = con.getCon().prepareStatement("SELECT * FROM administrador WHERE correo LIKE ?");
+            ps = con.getCon().prepareStatement("SELECT correo, clave, salt FROM administrador WHERE correo LIKE ?");
             ps.setString(1, adm.getCorreo());
             ResultSet rs;
             rs = ps.executeQuery();
             if(rs.next()){
-                AdministradorDTO ad = new AdministradorDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
+                AdministradorDTO ad = new AdministradorDTO(rs.getString(1), rs.getString(2), rs.getString(3));
                 ps = con.getCon().prepareStatement("SELECT * FROM administrador WHERE correo LIKE ? AND clave LIKE ?");
                 ps.setString(1, adm.getCorreo());
                 ps.setString(2, Hashing.generarClave(ad.getSalt(), adm.getClave()));
                 rs = ps.executeQuery();
                 if(rs.next()){
-                    res = new AdministradorDTO(ad);
+                    res = new AdministradorDTO(rs.getInt("id"), rs.getString("nombre"), rs.getString("apellido"), rs.getString("correo"));
                 }
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(AdministradorDAO.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (NoSuchAlgorithmException ex) {
+        } catch (SQLException | NoSuchAlgorithmException ex) {
             Logger.getLogger(AdministradorDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return res;

@@ -1,4 +1,3 @@
-
 <body class="text-center" id="login">
     <form class="form-signin" action="ValidarCTO" method="post">
         <div class="mb-4 logo">
@@ -7,7 +6,7 @@
         <div>
 
             <h1 class="h3 mb-3 font-weight-normal">Acceso a productos</h1>
-            <% if (request.getParameter("auth") != null) {%>
+            <% if (request.getParameter("login") != null && request.getParameter("login").equals("fail")) {%>
             <div class="alert alert-danger" role="alert">
                 Correo o clave incorrectos.
             </div>

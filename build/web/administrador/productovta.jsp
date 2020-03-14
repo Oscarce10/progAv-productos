@@ -1,9 +1,9 @@
-<%@page import="org.apache.tomcat.util.codec.binary.Base64"%>
+<%@page import="org.apache.commons.codec.binary.Base64"%>
 <%@page import="modelo.dto.ProductoDTO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-
+<%@include file="nav.jsp"%>
 <div class="container">
 
 
