@@ -78,7 +78,7 @@ create table administrador(
   id int auto_increment,
   nombre varchar(30),
   apellido varchar(30),
-  correo varchar(50) not null,
+  correo varchar(50) not null unique,
   clave varchar(150) not null,
   salt varchar(20),
   primary key(id)

@@ -36,6 +36,7 @@ public class ValidarCTO extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
 
         System.out.println("correo: " + request.getParameter("correo"));
         System.out.println("clave: " + request.getParameter("clave"));
@@ -63,7 +64,7 @@ public class ValidarCTO extends HttpServlet {
                 Logger.getLogger(ValidarCTO.class
                         .getName()).log(Level.SEVERE, null, ex);
             }
-        } else {
+        } else if(request.getParameter("correo") != null && request.getParameter("clave")!= null) {
 
             UsuarioDTO usuario = new UsuarioDTO(request.getParameter("correo"), request.getParameter("clave"));
             usuario = fa.validar(usuario);
@@ -78,21 +79,20 @@ public class ValidarCTO extends HttpServlet {
                         sesion.setAttribute("tipo", "administrador");
                         System.out.println("Sesion creada: " + sesion.getId());
                         System.out.println("Sesion correo: " + sesion.getAttribute("correo"));
-                        System.out.println("Sesion tipo: "+ sesion.getAttribute("tipo") + "Id: " + sesion.getAttribute("id"));
+                        System.out.println("Sesion tipo: " + sesion.getAttribute("tipo") + "Id: " + sesion.getAttribute("id"));
                         System.out.println(sesion.getAttribute("tipo") != null);
-                        
+
                         request.getRequestDispatcher("index.jsp?pid=" + Base64.encodeBase64String("administrador/inicio.jsp".getBytes())).forward(request, response);
                         return;
-                    }
-                    else{
-                        request.getRequestDispatcher("index.jsp?pid="+Base64.encodeBase64String("inicio.jsp".getBytes()) + "&login=fail").forward(request, response);
+                    } else {
+                        request.getRequestDispatcher("index.jsp?pid=" + Base64.encodeBase64String("inicio.jsp".getBytes()) + "&login=fail").forward(request, response);
                         return;
                     }
                 }
 
             } else {
                 System.out.println("El usuario no existe");
-                request.getRequestDispatcher("index.jsp?pid="+Base64.encodeBase64String("inicio.jsp".getBytes()) + "&login=fail").forward(request, response);
+                request.getRequestDispatcher("index.jsp?pid=" + Base64.encodeBase64String("inicio.jsp".getBytes()) + "&login=fail").forward(request, response);
                 return;
             }
 

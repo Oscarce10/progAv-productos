@@ -3,11 +3,11 @@
 <%@page import="controlador.Facade"%>
 <%@page import="modelo.dto.AdministradorDTO"%>
 <%
-HttpSession sesion = request.getSession();
-System.out.println(sesion.getAttribute("correo"));
-AdministradorDTO administrador = new AdministradorDTO(Integer.parseInt(session.getAttribute("id").toString()));
-Facade obF = new Facade();
-administrador = obF.readAdmin(administrador);
+    HttpSession sesion = request.getSession();
+    System.out.println(sesion.getAttribute("correo"));
+    AdministradorDTO administrador = new AdministradorDTO(Integer.parseInt(session.getAttribute("id").toString()));
+    Facade obF = new Facade();
+    administrador = obF.readAdmin(administrador);
 %>
 
 <%@include file="nav.jsp"%>

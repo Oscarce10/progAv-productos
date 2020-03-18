@@ -1,3 +1,11 @@
+<%
+    HttpSession sesion = request.getSession();
+    if (sesion.getAttribute("id") == null && sesion.getAttribute("tipo") == null) {
+        response.sendRedirect(request.getContextPath());
+        return;
+    }    
+%>
+
 <%@page import="org.apache.tomcat.util.codec.binary.Base64"%>
 <!DOCTYPE html>
 <head>
@@ -6,8 +14,8 @@
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet"
           href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-    <link rel="stylesheet" href="css/superhero.min.css">    
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="<%out.print(request.getContextPath());%>/css/superhero.min.css">    
+    <link rel="stylesheet" href="<%out.print(request.getContextPath());%>/css/styles.css">
 
 </head>
 
@@ -16,12 +24,12 @@
 
     <%
         if (request.getParameter("pid") != null) {
-        // Create a String.
-        String p;
-        // Get the bytes from the String, using getBytes() API method of String.
-        byte[] byteArray = Base64.decodeBase64(request.getParameter("pid").getBytes());
-        p = new String(byteArray);
-        System.out.println("p: " + p);
+            // Create a String.
+            String p;
+            // Get the bytes from the String, using getBytes() API method of String.
+            byte[] byteArray = Base64.decodeBase64(request.getParameter("pid").getBytes());
+            p = new String(byteArray);
+            System.out.println("p: " + p);
     %>
     <jsp:include page='<%=p%>'></jsp:include>
     <%

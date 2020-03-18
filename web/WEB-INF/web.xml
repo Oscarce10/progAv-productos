@@ -8,6 +8,10 @@
         <servlet-name>ValidarCTO</servlet-name>
         <servlet-class>controlador.ValidarCTO</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LogoutCTO</servlet-name>
+        <servlet-class>controlador.LogoutCTO</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ProductoCTO</servlet-name>
         <url-pattern>/ProductoCTO</url-pattern>
@@ -20,15 +24,17 @@
         <servlet-name>cliente</servlet-name>
         <url-pattern>/ClienteCTO</url-pattern>
     </servlet-mapping>
-       
     <servlet-mapping>
         <servlet-name>ValidarCTO</servlet-name>
         <url-pattern>/ValidarCTO</url-pattern>
     </servlet-mapping>
-    
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
+    <servlet-mapping>
+        <servlet-name>LogoutCTO</servlet-name>
+        <url-pattern>/LogoutCTO</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

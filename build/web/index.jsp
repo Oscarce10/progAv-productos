@@ -15,14 +15,7 @@
 
 
     <%
-        HttpSession sesion = request.getSession();
-        
-        if (sesion.getAttribute("tipo") != null) {
-            System.out.println("Sesion: " + sesion.getAttribute("tipo"));
-            String ruta = sesion.getAttribute("tipo") + "/inicio";%>
-
-    <jsp:include page="<%= ruta%>"></jsp:include>
-    <%} else if (request.getParameter("pid") != null) {
+        if (request.getParameter("pid") != null) {
         // Create a String.
         String p;
         // Get the bytes from the String, using getBytes() API method of String.
@@ -33,7 +26,9 @@
     <jsp:include page='<%=p%>'></jsp:include>
     <%
         } else {
-            request.getRequestDispatcher("index.jsp?pid=" + Base64.encodeBase64String("inicio.jsp".getBytes())).forward(request, response);
+           %>
+    <jsp:include page='inicio.jsp'></jsp:include>
+    <%
         }
     %>
 

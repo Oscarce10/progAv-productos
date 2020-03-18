@@ -17,7 +17,7 @@
             <li class="nav-item">
                 <a class="nav-link active" href="ClienteCTO?menu=Producto&accion=Listar">Clientes</a>
             </li>
-            <li class="nav-item"><a class="nav-link" href="index.jsp">Salida</a>
+            <li class="nav-item"><a class="nav-link" href="<%out.print(request.getContextPath());%>/LogoutCTO">Salida</a>
             </li>
 
         </ul>
