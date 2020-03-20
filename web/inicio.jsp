@@ -3,7 +3,6 @@
         <div class="mb-4 logo">
             <a href="#" title="Login"><i class="fab fa-critical-role fa-7x"></i></a>
         </div>
-        <div>
 
             <h1 class="h3 mb-3 font-weight-normal">Acceso a productos</h1>
             <% if (request.getParameter("login") != null && request.getParameter("login").equals("fail")) {%>
