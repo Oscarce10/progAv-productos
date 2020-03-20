@@ -42,10 +42,8 @@ public class ValidarCTO extends HttpServlet {
 
         System.out.println("correo: " + request.getParameter("correo"));
         System.out.println("clave: " + request.getParameter("clave"));
-        if(request.getParameter("correo") == null){
-            response.sendRedirect("index.jsp");
-            return;
-        }
+        System.out.println("Registrar: " + request.getParameter("registrar"));
+        
 
         Facade fa = new Facade();
         if (request.getParameter("registrar") != null) {
