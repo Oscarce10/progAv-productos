@@ -4,6 +4,8 @@ Luego probaremos que toda la persistencia esté funcionando correctamente, para 
 package controlador;
 
 import java.util.List;
+import modelo.dao.ClienteDAO;
+import modelo.dto.ClienteDTO;
 import modelo.dto.ProductoDTO;
 
 /**
@@ -23,6 +25,18 @@ public class Pruebas {
         }
         else{
             System.out.println("No hay productos");
+        }
+        
+        List<ClienteDTO> listPro = null;
+        ClienteDAO dao = new ClienteDAO();
+        listPro = dao.readAll();
+        if(listPro != null){
+            for(ClienteDTO cliente: listPro){
+                System.out.println(cliente);
+            }
+        }
+        else{
+            System.out.println("No hay clientes");
         }
     }
     

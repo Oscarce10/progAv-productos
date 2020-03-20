@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.dto.ClienteDTO;
 import modelo.dto.ProductoDTO;
+import org.apache.tomcat.util.codec.binary.Base64;
 
 /**
  *
@@ -38,15 +39,17 @@ public class ClienteCTO extends HttpServlet {
         String accion = request.getParameter("accion"); // Indica la accion a ejecutar
         System.out.println(menu);
         System.out.println(accion);
-        
-        if(menu.equalsIgnoreCase("Cliente")){
+        if (accion == null && menu == null || accion.equals("listar")) {
+            Facade ob = new Facade();
+            List<ClienteDTO> list = ob.listarClientes();
+            request.setAttribute("lista_clientes", list);
+
+            request.getRequestDispatcher("index.jsp?pid=" + Base64.encodeBase64String("administrador/clientevta.jsp".getBytes())).forward(request, response);
+        }
+        else if(menu.equalsIgnoreCase("Cliente")){
             Facade ob = new Facade();
             switch(accion){
-                case "Listar":
-                    List<ClienteDTO> list = ob.listarClientes();
-                    request.setAttribute("lista_clientes", list);
-                    break;
-                    
+                                   
                 case "agregar":
                     String razon_social = request.getParameter("nombre") + request.getParameter("apellido");
                     ClienteDTO cl = new ClienteDTO(
@@ -97,7 +100,7 @@ public class ClienteCTO extends HttpServlet {
                     request.getRequestDispatcher("ProductoCTO?menu=Producto&accion=Listar").forward(request, response);
                     break;
             }
-            request.getRequestDispatcher("clientevta.jsp").forward(request, response);
+            
         }
     }
 
