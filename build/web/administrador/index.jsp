@@ -1,11 +1,3 @@
-<%
-    HttpSession sesion = request.getSession();
-    if (sesion.getAttribute("id") == null && sesion.getAttribute("tipo") == null) {
-        response.sendRedirect(request.getContextPath());
-        return;
-    }    
-%>
-
 <%@page import="org.apache.tomcat.util.codec.binary.Base64"%>
 <!DOCTYPE html>
 <head>
@@ -23,6 +15,7 @@
 
 
     <%
+        
         if (request.getParameter("pid") != null) {
             // Create a String.
             String p;

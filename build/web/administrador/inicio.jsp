@@ -3,6 +3,9 @@
 <%@page import="controlador.Facade"%>
 <%@page import="modelo.dto.AdministradorDTO"%>
 <%
+    response.setHeader("Cache-Control", "private, no-cache, no-store, must-revalidate, max-age=0, proxy-revalidate, s-maxage=0"); // HTTP 1.1.
+        response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+        response.setHeader("Expires", "0"); // Proxies.
     HttpSession sesion = request.getSession();
     System.out.println(sesion.getAttribute("correo"));
     AdministradorDTO administrador = new AdministradorDTO(Integer.parseInt(session.getAttribute("id").toString()));

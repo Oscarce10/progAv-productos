@@ -36,7 +36,7 @@ public class LogoutCTO extends HttpServlet {
         response.setHeader("Expires", "0"); // Proxies.
         HttpSession sesion = request.getSession(false);
         sesion.invalidate();
-        request.getRequestDispatcher("/").forward(request, response);
+        response.sendRedirect("index.jsp");
         return;
     }
 

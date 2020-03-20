@@ -36,10 +36,16 @@ public class ValidarCTO extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        response.setHeader("Cache-Control", "private, no-cache, no-store, must-revalidate, max-age=0, proxy-revalidate, s-maxage=0"); // HTTP 1.1.
+        response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+        response.setHeader("Expires", "0"); // Proxies.
 
         System.out.println("correo: " + request.getParameter("correo"));
         System.out.println("clave: " + request.getParameter("clave"));
+        if(request.getParameter("correo") == null){
+            response.sendRedirect("index.jsp");
+            return;
+        }
 
         Facade fa = new Facade();
         if (request.getParameter("registrar") != null) {

@@ -36,6 +36,9 @@ public class ProductoCTO extends HttpServlet {
         String accion = request.getParameter("accion"); // Indica la accion a ejecutar
         System.out.println("menu: " + menu);
         System.out.println("accion: " + accion);
+        response.setHeader("Cache-Control", "private, no-cache, no-store, must-revalidate, max-age=0, proxy-revalidate, s-maxage=0"); // HTTP 1.1.
+        response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+        response.setHeader("Expires", "0"); // Proxies.
 
         if (accion == null && menu == null || accion.equals("listar")) {
             Facade ob = new Facade();

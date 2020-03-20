@@ -12,10 +12,11 @@
 </head>
 
 <body>
+    <% HttpSession sesion = request.getSession(); %>
 
 
     <%
-        if (request.getParameter("pid") != null) {
+        if (request.getParameter("pid") != null && sesion.getAttribute("id") != null && sesion.getAttribute("id") != "") {
         // Create a String.
         String p;
         // Get the bytes from the String, using getBytes() API method of String.
